@@ -33,3 +33,5 @@
 - 문의: **hnode.dev@gmail.com**
 
 오픈소스 구성요소와 라이선스는 앱의 설정 → 앱 정보에서 확인할 수 있습니다.
+
+Android 백그라운드 클립보드에 사용하는 LGPL SPAKE2의 [Java/JNI/C 원본·독립 빌드 및 재결합 안내](third_party/spake2-android/UPSTREAM.md)를 제공합니다. 정식 릴리스와 같은 `vX.Y.Z` 태그에서 해당 버전의 원본을 확인할 수 있습니다. 이 원본 공개 범위는 해당 오픈소스 라이브러리이며 QuickLink 전체 앱 소스와 분리됩니다.

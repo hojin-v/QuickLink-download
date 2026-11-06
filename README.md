@@ -34,4 +34,4 @@
 
 오픈소스 구성요소와 라이선스는 앱의 설정 → 앱 정보에서 확인할 수 있습니다.
 
-Android 백그라운드 클립보드에 사용하는 LGPL SPAKE2의 [Java/JNI/C 원본·독립 빌드 및 재결합 안내](third_party/spake2-android/UPSTREAM.md)를 제공합니다. 정식 릴리스와 같은 `vX.Y.Z` 태그에서 해당 버전의 원본을 확인할 수 있습니다. 이 원본 공개 범위는 해당 오픈소스 라이브러리이며 QuickLink 전체 앱 소스와 분리됩니다.
+이전 `0.8.3` Android 개발자 베타에 포함됐던 LGPL SPAKE2의 [Java/JNI/C 원본·독립 빌드 및 재결합 안내](third_party/spake2-android/UPSTREAM.md)를 보존합니다. 이후 버전의 공식 BoringSSL 기반 구현에서는 이 의존성을 사용하지 않습니다. 이 폴더는 구버전 배포에 필요한 원본이므로 삭제하지 않으며, QuickLink 전체 앱 소스와 분리됩니다. 현재 버전의 구성요소·라이선스는 해당 앱의 고지를 확인하세요.

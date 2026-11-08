@@ -16,7 +16,7 @@
 
 Ubuntu·Debian에서는 `QuickLink-버전-linux-x64.deb`를 **소프트웨어 설치 앱**으로 열어 설치합니다. 시스템 인증을 마치면 앱 목록에서 실행하고, 소프트웨어 관리 앱 또는 **QuickLink → 설정 → 앱 정보 → 앱 제거**로 제거할 수 있습니다.
 
-압축본은 `QuickLink-버전-linux-x64.tar.gz`를 풀고 **`quicklink-setup`을 더블클릭**하면 GUI로 설치·제거합니다. `quicklink`를 직접 실행하거나 기존 `./install.sh`를 사용할 수도 있습니다. 이전 압축 설치본은 기존 앱을 종료한 뒤 새 관리 창에서 제거하고 `.deb`로 전환하세요. 제거 시 받은 파일·연결 설정은 보존합니다.
+압축본은 `QuickLink-버전-linux-x64.tar.gz`를 풀고 **`quicklink-setup`을 더블클릭**하면 GUI로 설치·제거합니다. `quicklink`를 직접 실행하거나 기존 `./install.sh`를 사용할 수도 있습니다. 이전 압축 설치본은 기존 앱을 종료한 뒤 새 관리 창에서 제거하고 `.deb`로 전환하세요. 제거 시 받은 파일·연결 설정은 보존합니다. 실행 파일을 이미 삭제해 이전 아이콘만 남았다면 새 `quicklink-setup`의 **이전 바로가기 정리**를 사용합니다.
 
 Linux x64·GTK 3·PulseAudio 환경이 필요하며 Wayland 원격 화면·입력은 데스크톱의 승인과 지원에 따라 동작합니다. 기본 검증 환경은 Ubuntu 26.04입니다.
 

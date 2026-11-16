@@ -7,7 +7,7 @@
 ## 다운로드
 
 - **Linux x64:** [최신 정식 배포](https://github.com/hojin-v/QuickLink-download/releases/latest)
-- **Android:** Google Play 배포 준비 중입니다. 등록이 완료되면 공식 스토어 링크를 안내합니다.
+- **Android:** `0.8.12`를 Google Play 프로덕션 심사에 제출했습니다. Google 승인 후 공식 스토어 다운로드를 제공합니다.
 - **Windows:** 호환성 검증 중입니다. 아직 정식 배포 파일을 제공하지 않습니다.
 
 정식 릴리스가 등록되기 전에는 최신 배포 링크에 파일이 표시되지 않습니다.

@@ -1,5 +1,7 @@
 name: Publish signed PC release
 on:
+  repository_dispatch:
+    types: [quicklink-pc-release]
   workflow_dispatch:
     inputs:
       release_id:
@@ -27,6 +29,6 @@ jobs:
       - name: Verify signatures, installers and corresponding vendor sources; publish
         env:
           GH_TOKEN: ${{ github.token }}
-          RELEASE_ID: ${{ inputs.release_id }}
-          MANIFEST_SHA256: ${{ inputs.manifest_sha256 }}
+          RELEASE_ID: ${{ inputs.release_id || github.event.client_payload.release_id }}
+          MANIFEST_SHA256: ${{ inputs.manifest_sha256 || github.event.client_payload.manifest_sha256 }}
         run: python3 tool/publish_release.py --release-id "$RELEASE_ID" --manifest-sha256 "$MANIFEST_SHA256" --publish

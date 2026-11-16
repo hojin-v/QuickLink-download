@@ -53,7 +53,7 @@ def verify(directory, expected_hash):
     if not required <= files.keys() or not any(name.startswith('THIRD-PARTY-SOURCES-') for name in files):
         raise ValueError('Installers, update metadata or corresponding vendor sources are missing.')
     for name, item in files.items():
-        allowed = name in required or name.startswith(('THIRD-PARTY-SOURCES-WebRTC-linux.tar.xz.part-', 'licenses-')) or name == 'libwebrtc-linux-x64-pinned.zip'
+        allowed = name in required or name.startswith(('THIRD-PARTY-SOURCES-WebRTC-linux.tar.xz.part-', 'licenses-')) or name in ['libwebrtc-linux-x64-pinned.zip', 'build-proof.json']
         if not allowed or Path(name).name != name:
             raise ValueError('Unexpected public file: ' + name)
         path = directory / name

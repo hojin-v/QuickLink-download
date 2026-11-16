@@ -49,3 +49,9 @@ GitHub Releases      정식 설치 파일, 서명된 업데이트, 버전별 제
 `Publish signed PC release` 작업은 준비된 공개 초안 ID와 매니페스트 해시를 받아 설치 파일의 서명·해시, 업데이트 URL, 네이티브 라이브러리와 대응 소스의 일치를 확인한 뒤 게시합니다. 이 작업은 이 저장소의 `GITHUB_TOKEN`만 사용하며 비공개 앱 소스나 Play 서비스 계정 키에 접근하지 않습니다. 서명용 개인 키는 이 저장소에 두지 않습니다.
 
 비공개 빌드에서 공개 초안으로 전달할 때는 배포 저장소에 한정된 쓰기 권한을 사용합니다. 최초 운영자 전달은 기존 GitHub 로그인으로 실행할 수 있으며, 이 로그인 토큰을 Actions Secret에 복사하지 않습니다. 공개한 설치 파일은 덮어쓰지 않고 다음 정식 버전으로 배포합니다.
+
+## 네이티브 라이브러리 재빌드
+
+Linux 릴리스에 첨부하는 `source-manifest.json`, `args.gn`, `revisions.txt`, `REBUILD.md`와 `THIRD-PARTY-SOURCES-WebRTC-linux.tar.xz.part-*`가 해당 라이브러리의 대응 자료입니다. 분할 파일을 숫자 순으로 합쳐 풀고, 기록된 버전의 depot_tools를 준비한 뒤 **`depot_tools/ensure_bootstrap`을 먼저 실행**하세요. `DEPOT_TOOLS_UPDATE=0`으로 도구 버전을 유지합니다. 패키지의 GN 설정과 컴파일러·sysroot 설치 스크립트로 재빌드할 수 있습니다.
+
+빌드한 호환 `libwebrtc.so`는 앱 압축본의 `lib/libwebrtc.so`를 교체하여 사용할 수 있습니다. 이를 위해 QuickLink 앱 소스를 공개하거나 앱 전체를 다시 컴파일할 필요는 없습니다. 설치 관리자·자동 업데이트가 원본 파일을 복원할 수 있으므로 라이브러리를 바꾼 실험본은 사용자 압축본으로 별도 보관하세요.

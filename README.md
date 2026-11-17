@@ -6,11 +6,11 @@
 
 ## 다운로드
 
-- **Linux x64:** [최신 정식 배포](https://github.com/hojin-v/QuickLink-download/releases/latest)
+- **Linux x64:** [Ubuntu·Debian 설치 파일(.deb)](https://github.com/hojin-v/QuickLink-download/releases/download/v0.8.10/QuickLink-0.8.10-linux-x64.deb) · [압축본·전체 파일](https://github.com/hojin-v/QuickLink-download/releases/latest)
 - **Android:** [Google Play에서 다운로드](https://play.google.com/store/apps/details?id=com.hnode.quicklink) · 정식 `0.8.12`
 - **Windows:** 호환성 검증 중입니다. 아직 정식 배포 파일을 제공하지 않습니다.
 
-정식 릴리스가 등록되기 전에는 최신 배포 링크에 파일이 표시되지 않습니다.
+Ubuntu·Debian에서는 `.deb`만 받으면 됩니다. 대응 소스·라이선스 자료는 재빌드용이며 일반 설치에는 필요하지 않습니다.
 
 ## Linux 설치와 업데이트
 

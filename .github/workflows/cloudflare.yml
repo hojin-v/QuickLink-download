@@ -57,17 +57,21 @@ jobs:
           python3 - <<'PY'
           import time
           import urllib.request
+          last_failure = ''
           for attempt in range(18):
               try:
-                  with urllib.request.urlopen('https://quicklink.hnode.me/', timeout=10) as response:
+                  request = urllib.request.Request('https://quicklink.hnode.me/', headers={
+                      'User-Agent': 'Mozilla/5.0 (compatible; QuickLinkDeployment/1.0)',
+                  })
+                  with urllib.request.urlopen(request, timeout=10) as response:
                       content = response.read().decode('utf-8')
                       if response.status == 200 and 'com.hnode.quicklink' in content and 'assets/icon.png' in content:
                           print('QuickLink is live at https://quicklink.hnode.me/')
                           break
-              except Exception:
-                  pass
+              except Exception as error:
+                  last_failure = str(error)
               if attempt == 17:
-                  raise SystemExit('Deployment uploaded, but custom-domain DNS/TLS is not ready. Inspect Domains & Routes in Cloudflare and rerun this workflow.')
+                  raise SystemExit(f'Custom-domain HTTPS check failed: {last_failure}. Inspect Domains & Routes and hostname security rules in Cloudflare.')
               time.sleep(10)
           PY
   redirect-old-address:

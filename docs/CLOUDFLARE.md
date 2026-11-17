@@ -1,6 +1,6 @@
 # Download website hosting
 
-The Cloudflare deployment configuration targets **Workers Static Assets**, with the hostname **quicklink.hnode.me**. Source files remain in `website/` in this repository. Installers, update metadata, signatures and vendor source archives remain in GitHub Releases. Android distribution remains on Google Play. Until the first successful Cloudflare deployment, the existing GitHub Pages website continues serving its last deployment.
+The website is hosted on **Cloudflare Workers Static Assets**, with the hostname **quicklink.hnode.me**. Source files remain in `website/` in this repository. Installers, update metadata, signatures and vendor source archives remain in GitHub Releases. Android distribution remains on Google Play. The previous GitHub Pages address redirects visitors after the new HTTPS page has passed verification.
 
 This is an asset-only deployment: no application Worker script, database, paid plan or server build is required. Wrangler is pinned in `package-lock.json` and used only for deployment. Uploads include only `website/`; repository keys, tools and Git history are not served as website assets.
 

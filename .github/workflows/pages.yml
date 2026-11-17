@@ -1,10 +1,6 @@
-name: Publish download website
+name: Redirect legacy download website
 on:
-  push:
-    branches: [main]
-    paths: ['website/**', '.github/workflows/pages.yml']
-  release:
-    types: [published]
+  workflow_call:
   workflow_dispatch:
 permissions:
   contents: read
@@ -15,13 +11,23 @@ concurrency:
   cancel-in-progress: false
 jobs:
   deploy:
-    if: github.ref == 'refs/heads/main' || github.event_name == 'release'
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: Require a working Cloudflare website before redirecting existing visitors
+        run: |
+          curl --fail --silent --show-error --retry 3 --max-time 20 https://quicklink.hnode.me/ -o "$RUNNER_TEMP/quicklink-live.html"
+          python3 - "$RUNNER_TEMP/quicklink-live.html" <<'PY'
+          import pathlib
+          import sys
+          page = pathlib.Path(sys.argv[1]).read_text()
+          if 'com.hnode.quicklink' not in page or 'assets/icon.png' not in page:
+              raise SystemExit('The Cloudflare landing page is not ready. The existing GitHub Pages site is preserved.')
+          PY
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           ref: main
@@ -29,7 +35,7 @@ jobs:
       - uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b
       - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa
         with:
-          path: website
+          path: legacy-pages
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e

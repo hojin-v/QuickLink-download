@@ -42,7 +42,9 @@ Android와 PC의 공통 앱 소스 및 개발자 베타는 **비공개 `hojin-v/
 
 ```text
 .github/workflows/    공개 PC 릴리스의 검증·게시 작업
-website/             GitHub Pages 다운로드 웹사이트
+website/             Cloudflare에 배포하는 다운로드 웹사이트
+legacy-pages/        이전 GitHub Pages 주소의 이동 안내
+wrangler.jsonc       Cloudflare 정적 배포와 도메인 설정
 keys/                앱에 고정된 업데이트 검증용 공개 키
 tool/               공개 산출물 검증 도구
 GitHub Releases      정식 설치 파일, 서명된 업데이트, 버전별 제3자 고지·소스
@@ -52,7 +54,9 @@ GitHub Releases      정식 설치 파일, 서명된 업데이트, 버전별 제
 
 비공개 빌드에서 공개 초안으로 전달할 때는 배포 저장소에 한정된 쓰기 권한을 사용합니다. 최초 운영자 전달은 기존 GitHub 로그인으로 실행할 수 있으며, 이 로그인 토큰을 Actions Secret에 복사하지 않습니다. 공개한 설치 파일은 덮어쓰지 않고 다음 정식 버전으로 배포합니다.
 
-`website/`는 빌드 도구 없이 제공하는 정적 페이지입니다. `main`의 웹 파일 변경은 `Publish download website` 작업으로 GitHub Pages에 배포됩니다. Linux 다운로드 링크는 공개된 최신 정식 릴리스에서 갱신하고, API를 사용할 수 없을 때도 기존 정식 다운로드 링크를 유지합니다. Android APK·AAB는 이 저장소에서 배포하지 않으며, Android 버튼은 Google Play로 연결합니다.
+`website/`는 빌드 도구 없이 제공하는 정적 페이지입니다. Cloudflare Workers Static Assets로 이전하도록 구성했으며, 연결할 주소는 **quicklink.hnode.me**입니다. 최초 배포에 필요한 Cloudflare 인증 정보가 등록되기 전까지 기존 GitHub Pages 페이지를 유지합니다. [계정 연결·배포 안내](docs/CLOUDFLARE.md)에 따라 등록한 뒤 `Publish download website to Cloudflare` 작업을 실행하면 새 페이지의 HTTPS 응답을 확인하고 이전 Pages 주소를 자동으로 이동 안내로 교체합니다. 이후 `main`의 웹 파일 변경은 Cloudflare에 자동 반영됩니다.
+
+Linux 다운로드 링크는 공개된 최신 정식 릴리스에서 갱신하고, API를 사용할 수 없을 때도 기존 정식 다운로드 링크를 유지합니다. Android APK·AAB는 이 저장소에서 배포하지 않으며, Android 버튼은 Google Play로 연결합니다.
 
 ## 네이티브 라이브러리 재빌드
 

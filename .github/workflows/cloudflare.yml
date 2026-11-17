@@ -1,0 +1,79 @@
+name: Publish download website to Cloudflare
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'website/**'
+      - 'wrangler.jsonc'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/cloudflare.yml'
+      - 'legacy-pages/**'
+      - '.github/workflows/pages.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: cloudflare-website-production
+  cancel-in-progress: false
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    environment:
+      name: cloudflare-production
+      url: https://quicklink.hnode.me
+    env:
+      WRANGLER_SEND_METRICS: 'false'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Check Cloudflare connection
+        shell: bash
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID || vars.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ -z "$CLOUDFLARE_ACCOUNT_ID" ]; then
+            echo "::error::Add CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID in this repository's Actions secrets. See docs/CLOUDFLARE.md."
+            exit 1
+          fi
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - run: npm run check
+      - name: Publish static files and custom domain
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID || vars.CLOUDFLARE_ACCOUNT_ID }}
+        run: npm run deploy
+      - name: Confirm public HTTPS page
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import time
+          import urllib.request
+          for attempt in range(18):
+              try:
+                  with urllib.request.urlopen('https://quicklink.hnode.me/', timeout=10) as response:
+                      content = response.read().decode('utf-8')
+                      if response.status == 200 and 'com.hnode.quicklink' in content and 'assets/icon.png' in content:
+                          print('QuickLink is live at https://quicklink.hnode.me/')
+                          break
+              except Exception:
+                  pass
+              if attempt == 17:
+                  raise SystemExit('Deployment uploaded, but custom-domain DNS/TLS is not ready. Inspect Domains & Routes in Cloudflare and rerun this workflow.')
+              time.sleep(10)
+          PY
+  redirect-old-address:
+    needs: deploy
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    uses: ./.github/workflows/pages.yml

@@ -1,0 +1,14 @@
+{
+  "name": "quicklink-download-website",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "check": "node --check website/app.js",
+    "deploy": "wrangler deploy",
+    "deploy:check": "wrangler deploy --dry-run"
+  },
+  "devDependencies": {
+    "wrangler": "4.163.0"
+  },
+  "engines": { "node": "24.x" }
+}

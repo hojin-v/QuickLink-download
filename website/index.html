@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101b1b">
+  <title>QuickLink — 휴대폰과 PC, 하던 일을 그대로</title>
+  <meta name="description" content="내 휴대폰과 PC 사이의 파일, 클립보드, 원격 화면을 연결하세요. Android는 Google Play에서, Linux는 공식 설치 파일로 시작할 수 있습니다.">
+  <link rel="canonical" href="https://hojin-v.github.io/QuickLink-download/">
+  <meta property="og:title" content="QuickLink — 휴대폰과 PC, 하던 일을 그대로">
+  <meta property="og:description" content="파일부터 클립보드, 원격 화면까지. 내 기기를 연결하는 하나의 앱.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hojin-v.github.io/QuickLink-download/">
+  <meta property="og:image" content="https://hojin-v.github.io/QuickLink-download/assets/icon.png">
+  <link rel="icon" type="image/png" href="assets/icon.png">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main" data-i18n="skip">본문으로 이동</a>
+  <header class="header wrap">
+    <a class="brand" href="#" aria-label="QuickLink home"><img src="assets/icon.png" width="38" height="38" alt=""><span>QuickLink<span class="brand-dot">.</span></span></a>
+    <nav aria-label="주 메뉴">
+      <a href="#features" data-i18n="navFeatures">기능</a>
+      <a href="#start" data-i18n="navStart">시작하기</a>
+      <button class="lang" id="language" type="button" aria-label="Switch to English">EN</button>
+      <a class="nav-download" href="#download" data-i18n="download">다운로드 <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero wrap">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot"></span><span data-i18n="platforms">ANDROID + LINUX</span></p>
+        <h1 data-i18n="headline">기기는 둘.<br>하던 일은 <em>하나.</em></h1>
+        <p class="lead" data-i18n="intro">휴대폰에서 복사한 문장, 방금 찍은 사진,<br class="wide-only"> PC에 있는 파일까지. 내 기기 사이를 자연스럽게.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#download" data-i18n="getStarted">QuickLink 시작하기 <span aria-hidden="true">↗</span></a>
+          <a class="text-link" href="#features" data-i18n="explore">어떤 일을 할 수 있나요? <span aria-hidden="true">↓</span></a>
+        </div>
+        <p class="hero-note" data-i18n="heroNote">무료 · 내 기기 승인으로 연결</p>
+      </div>
+      <div class="hero-art">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <span class="art-label label-one"><span aria-hidden="true">⌘</span><span data-i18n="clipboard">클립보드</span></span>
+        <img class="hero-icon" src="assets/quicklink.png" width="1280" height="1280" alt="스마트폰과 모니터를 양방향으로 잇는 QuickLink 아이콘" fetchpriority="high">
+        <span class="art-label label-two"><span aria-hidden="true">↔</span><span data-i18n="myDevices">내 기기 연결</span><i></i></span>
+        <div class="art-caption"><span>PHONE</span><span class="connection-line"></span><span>DESKTOP</span></div>
+      </div>
+    </section>
+
+    <section id="features" class="features wrap section">
+      <div class="section-heading"><p class="eyebrow" data-i18n="featuresEyebrow">하나로 이어지는 일상</p><h2 data-i18n="featuresTitle">옮기고, 붙여넣고.<br>필요하면 화면까지.</h2><p data-i18n="featuresIntro">앱을 바꿔 가며 내게 다시 보내던 일을<br class="wide-only"> 연결된 기기 사이에서 바로 이어가세요.</p></div>
+      <div class="feature-grid">
+        <article class="feature feature-file"><div class="feature-symbol" aria-hidden="true">↗</div><h3 data-i18n="filesTitle">파일은 오가고,<br>내역은 한곳에.</h3><p data-i18n="filesBody">파일과 폴더를 보내고, 받은 파일과 전송 내역을 전송함에서 확인하세요. 목록과 격자 중 편한 방식으로 볼 수 있습니다.</p><div class="file-demo" aria-hidden="true"><span class="file-icon">PDF</span><div><strong>project-notes.pdf</strong><span data-i18n="demoComplete">전송 완료 · 사용 예시</span></div><span class="check">✓</span></div></article>
+        <article class="feature"><div class="feature-symbol" aria-hidden="true">⌘</div><h3 data-i18n="clipTitle">복사한 내용도,<br>방금 찍은 사진도.</h3><p data-i18n="clipBody">연결된 기기로 텍스트를 공유하고, 사진 동기화를 켜면 새로 촬영한 사진을 PC로 전달합니다. 필요한 권한은 직접 선택하세요.</p><a href="#clipboard-faq" class="feature-link" data-i18n="clipLimit">Android 클립보드 안내 ↗</a></article>
+        <article class="feature"><div class="feature-symbol" aria-hidden="true">▣</div><h3 data-i18n="remoteTitle">PC 화면을 보고,<br>휴대폰으로 조작.</h3><p data-i18n="remoteBody">원격 화면으로 PC의 작업을 이어가거나, 모바일 트랙패드로 포인터를 움직이세요. 연결 요청을 승인한 기기와 사용합니다.</p><span class="feature-footnote" data-i18n="remoteNote">원격 화면·입력은 운영체제의 허용이 필요합니다.</span></article>
+      </div>
+    </section>
+
+    <section class="app-section section">
+      <div class="wrap app-layout"><div class="app-copy"><p class="eyebrow" data-i18n="appEyebrow">내 기기를 위한 공간</p><h2 data-i18n="appTitle">연결은 눈에 보이게.<br>공유는 내가 원할 때.</h2><p data-i18n="appBody">내 기기에서 연결과 클립보드를 관리하고, 전송함에서는 파일을 바로 찾아보세요. 필요한 기능을 가까이에 두었습니다.</p><ul class="detail-list"><li data-i18n="detailOne">기기별 연결 승인과 클립보드 설정</li><li data-i18n="detailTwo">받은 파일·보낸 파일을 한 전송함에서</li><li data-i18n="detailThree">목록·격자 보기와 파일 검색</li></ul><a href="https://hnode.me/android/quicklink" class="text-link" data-i18n="readStory">QuickLink 소개 읽기 ↗</a></div><div class="screens"><figure><div class="phone"><img src="assets/devices.png" width="1080" height="1920" alt="QuickLink Android 내 기기 화면" loading="lazy"></div><figcaption data-i18n="devicesScreen">내 기기</figcaption></figure><figure><div class="phone"><img src="assets/transfers.png" width="1080" height="1920" alt="QuickLink Android 전송함 화면" loading="lazy"></div><figcaption data-i18n="transfersScreen">전송함</figcaption></figure></div></div>
+    </section>
+
+    <section id="start" class="wrap section start-section"><div class="section-heading"><p class="eyebrow" data-i18n="startEyebrow">처음 연결하는 방법</p><h2 data-i18n="startTitle">양쪽에 설치하고.<br>내 기기를 연결하세요.</h2></div><ol class="steps"><li><span class="step-number">01</span><h3 data-i18n="stepOneTitle">휴대폰과 PC에 설치</h3><p data-i18n="stepOne">Android는 Google Play에서, Linux PC는 아래 설치 파일로 시작합니다.</p></li><li><span class="step-number">02</span><h3 data-i18n="stepTwoTitle">같은 네트워크에서 연결</h3><p data-i18n="stepTwo">앱을 열고 내 기기를 선택해 연결합니다. 외부에서는 서로 접근 가능한 VPN 연결을 사용할 수 있습니다.</p></li><li><span class="step-number">03</span><h3 data-i18n="stepThreeTitle">요청을 승인하고 공유</h3><p data-i18n="stepThree">기기의 연결 요청을 승인하세요. 클립보드와 사진 동기화는 필요한 기능만 켜면 됩니다.</p></li></ol></section>
+
+    <section id="download" class="wrap section download-section"><div class="download-heading"><div><p class="eyebrow" data-i18n="downloadEyebrow">내 기기에서 시작하세요</p><h2 data-i18n="downloadTitle">QuickLink 다운로드</h2></div><a class="text-link" href="https://github.com/hojin-v/QuickLink-download/releases" data-i18n="releaseNotes">릴리스 기록 ↗</a></div><div class="downloads"><article class="download-card"><span class="os-mark" aria-hidden="true">◉</span><h3>Android</h3><p data-i18n="androidDesc">Google Play 정식 버전<br>Android 8.0 이상</p><a class="button primary" href="https://play.google.com/store/apps/details?id=com.hnode.quicklink" data-i18n="playDownload">Google Play에서 설치 ↗</a><span class="download-note" data-i18n="androidNote">설치와 업데이트는 Google Play에서</span></article><article class="download-card linux-card"><span class="os-mark" aria-hidden="true">▰</span><div class="os-heading"><h3>Linux</h3><span id="linux-version">v0.8.10 · x64</span></div><p data-i18n="linuxDesc">Ubuntu · Debian용 설치 파일<br>다른 배포판은 압축본을 이용하세요.</p><a id="deb-download" class="button primary" href="https://github.com/hojin-v/QuickLink-download/releases/download/v0.8.10/QuickLink-0.8.10-linux-x64.deb" data-i18n="debDownload">.deb 다운로드 ↓</a><div class="download-secondary"><a id="tar-download" href="https://github.com/hojin-v/QuickLink-download/releases/download/v0.8.10/QuickLink-0.8.10-linux-x64.tar.gz" data-i18n="tarDownload">압축본 (.tar.gz) ↗</a><span id="deb-size"></span></div></article><article class="download-card coming"><span class="os-mark" aria-hidden="true">⊞</span><h3>Windows</h3><p data-i18n="windowsDesc">Windows 배포를 준비하고 있습니다.<br>정식 설치 파일은 아직 없습니다.</p><span class="coming-label" data-i18n="comingSoon">준비 중</span><a class="feature-link" href="https://github.com/hojin-v/QuickLink-download/releases" data-i18n="checkReleases">새 배포 확인 ↗</a></article></div><div class="install-note"><span class="note-icon" aria-hidden="true">i</span><p data-i18n="installNote">Ubuntu·Debian은 .deb 파일만 받으면 됩니다. 설치 앱으로 열어 인증을 마치세요. 설치 후 다운로드한 파일은 삭제해도 됩니다. 압축본은 압축을 푼 뒤 quicklink-setup으로 설치합니다.</p></div><p class="system-note" data-i18n="systemNote">Linux x64 · GTK 3 · PulseAudio 필요. 기본 검증 환경: Ubuntu 26.04. Wayland 원격 화면·입력은 데스크톱의 승인과 지원에 따라 동작합니다.</p></section>
+
+    <section class="wrap section faq-section"><div><p class="eyebrow">FAQ</p><h2 data-i18n="faqTitle">연결 전에<br> 궁금한 것들.</h2></div><div class="faqs"><details><summary data-i18n="faqOneTitle">다른 네트워크에서도 연결할 수 있나요?</summary><p data-i18n="faqOne">기기들이 서로 접근할 수 있으면 연결할 수 있습니다. 같은 네트워크가 아니라면 VPN 등으로 경로를 마련해야 합니다. 특정 VPN 브랜드에만 의존하지 않으며, 연결 가능 여부는 네트워크 설정에 따라 달라집니다.</p></details><details id="clipboard-faq"><summary data-i18n="faqTwoTitle">모바일에서 복사하면 자동으로 PC에 오나요?</summary><p data-i18n="faqTwo">Android는 일반 앱의 백그라운드 클립보드 읽기를 제한합니다. 앱 안에서의 공유와 공유 메뉴를 사용할 수 있지만, 기존 키보드를 유지한 상태의 자동 전달에는 별도 보조 연결이 필요할 수 있습니다. PC에서 모바일로 전달하는 기능, 새 사진 동기화와는 별개입니다.</p></details><details><summary data-i18n="faqThreeTitle">이전에 찍은 사진도 모두 전송되나요?</summary><p data-i18n="faqThree">사진 동기화는 기능을 켠 뒤 연결된 동안 새로 촬영한 사진을 전달합니다. 기존 사진 보관함 전체를 자동 전송하는 기능이 아닙니다. 사진 접근 권한과 동기화 여부는 직접 설정할 수 있습니다.</p></details><details><summary data-i18n="faqFourTitle">PC 업데이트와 삭제는 어떻게 하나요?</summary><p data-i18n="faqFour">앱의 설정 → 앱 정보 → 업데이트 확인에서 새 버전을 적용합니다. .deb 설치본은 OS 인증창을 사용합니다. 제거는 소프트웨어 관리 앱이나 앱의 설치 관리에서 진행하며, 받은 파일과 연결 설정은 보존합니다.</p></details><details><summary data-i18n="faqFiveTitle">소스 코드와 라이선스 자료는 어디에 있나요?</summary><p data-i18n="faqFive">앱 소스와 개발자 베타는 비공개 저장소에서 관리합니다. 공개 다운로드 저장소는 정식 PC 설치 파일과 업데이트 정보를 제공합니다. 사용한 오픈소스 구성요소의 고지와 필요한 대응 소스는 앱 정보와 각 릴리스 첨부 파일에서 확인할 수 있습니다.</p><a href="https://github.com/hojin-v/QuickLink-download#네이티브-라이브러리-재빌드" data-i18n="licenseLink">라이선스·재빌드 안내 ↗</a></details></div></section>
+  </main>
+
+  <footer class="footer wrap"><div><a class="brand" href="#"><img src="assets/icon.png" width="32" height="32" alt=""><span>QuickLink<span class="brand-dot">.</span></span></a><p data-i18n="footerText">내 기기를 연결하는 일. hnode가 만듭니다.</p><span class="copyright">© 2026 hnode</span></div><div class="footer-links"><a href="https://hnode.me/privacy/quicklink" data-i18n="privacy">개인정보처리방침</a><a href="https://github.com/hojin-v/QuickLink-download" data-i18n="github">다운로드 저장소 ↗</a><a href="mailto:hnode.dev@gmail.com" data-i18n="contact">문의하기 ↗</a></div></footer>
+</body>
+</html>

@@ -6,6 +6,8 @@
 
 ## 다운로드
 
+**[공식 다운로드 페이지](https://hojin-v.github.io/QuickLink-download/)** — 기능 소개, 기기 연결 방법, 설치 안내와 최신 정식 PC 파일을 한곳에서 확인할 수 있습니다. 한국어·영어를 지원합니다.
+
 - **Linux x64:** [Ubuntu·Debian 설치 파일(.deb)](https://github.com/hojin-v/QuickLink-download/releases/download/v0.8.10/QuickLink-0.8.10-linux-x64.deb) · [압축본·전체 파일](https://github.com/hojin-v/QuickLink-download/releases/latest)
 - **Android:** [Google Play에서 다운로드](https://play.google.com/store/apps/details?id=com.hnode.quicklink) · 정식 `0.8.12`
 - **Windows:** 호환성 검증 중입니다. 아직 정식 배포 파일을 제공하지 않습니다.
@@ -32,7 +34,7 @@ Linux x64·GTK 3·PulseAudio 환경이 필요하며 Wayland 원격 화면·입�
 
 오픈소스 구성요소와 라이선스는 앱의 설정 → 앱 정보에서 확인할 수 있습니다.
 
-이전 `0.8.3` Android 개발자 베타에 포함됐던 LGPL SPAKE2의 [Java/JNI/C 원본·독립 빌드 및 재결합 안내](third_party/spake2-android/UPSTREAM.md)를 보존합니다. 이후 버전의 공식 BoringSSL 기반 구현에서는 이 의존성을 사용하지 않습니다. 이 폴더는 구버전 배포에 필요한 원본이므로 삭제하지 않으며, QuickLink 전체 앱 소스와 분리됩니다. 현재 버전의 구성요소·라이선스는 해당 앱의 고지를 확인하세요.
+과거 Android 테스트판의 대응 소스는 [고정된 보존 태그](https://github.com/hojin-v/QuickLink-download/tree/archive/android-spake2-0.8.3/third_party/spake2-android)에서 확인할 수 있습니다. 현재 배포 폴더와 앱 의존성에는 포함하지 않습니다.
 
 ## 저장소 구분과 배포 자동화
 
@@ -40,15 +42,17 @@ Android와 PC의 공통 앱 소스 및 개발자 베타는 **비공개 `hojin-v/
 
 ```text
 .github/workflows/    공개 PC 릴리스의 검증·게시 작업
+website/             GitHub Pages 다운로드 웹사이트
 keys/                앱에 고정된 업데이트 검증용 공개 키
 tool/               공개 산출물 검증 도구
-third_party/         구버전 배포에 필요한 제3자 대응 소스 보존
 GitHub Releases      정식 설치 파일, 서명된 업데이트, 버전별 제3자 고지·소스
 ```
 
 `Publish signed PC release` 작업은 준비된 공개 초안 ID와 매니페스트 해시를 받아 설치 파일의 서명·해시, 업데이트 URL, 네이티브 라이브러리와 대응 소스의 일치를 확인한 뒤 게시합니다. 이 작업은 이 저장소의 `GITHUB_TOKEN`만 사용하며 비공개 앱 소스나 Play 서비스 계정 키에 접근하지 않습니다. 서명용 개인 키는 이 저장소에 두지 않습니다.
 
 비공개 빌드에서 공개 초안으로 전달할 때는 배포 저장소에 한정된 쓰기 권한을 사용합니다. 최초 운영자 전달은 기존 GitHub 로그인으로 실행할 수 있으며, 이 로그인 토큰을 Actions Secret에 복사하지 않습니다. 공개한 설치 파일은 덮어쓰지 않고 다음 정식 버전으로 배포합니다.
+
+`website/`는 빌드 도구 없이 제공하는 정적 페이지입니다. `main`의 웹 파일 변경은 `Publish download website` 작업으로 GitHub Pages에 배포됩니다. Linux 다운로드 링크는 공개된 최신 정식 릴리스에서 갱신하고, API를 사용할 수 없을 때도 기존 정식 다운로드 링크를 유지합니다. Android APK·AAB는 이 저장소에서 배포하지 않으며, Android 버튼은 Google Play로 연결합니다.
 
 ## 네이티브 라이브러리 재빌드
 
